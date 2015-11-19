@@ -1,17 +1,5 @@
-if [[ `ssh-add -L` == "The agent has no identities." ]]; then
-  ssh-add
-fi
-
-if pgrep -lfq sublime-net-invoke.sh; then
-  pkill -f sublime-net-invoke.sh
-fi
-
-nohup /Users/jwasmer/Development/mac-files/sublime-net-invoke.sh 1>&2 &>/dev/null &!
-
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/michmueller/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -61,12 +49,11 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo colored-man-pages brew vagrant)
+plugins=(git node npm brew pip composer colored-man-pages sudo vagrant common-aliases fabric httpie mvn)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/michmueller/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -93,37 +80,9 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias s="git status"
+alias di="git diff"
 
-alias vb='ssh box'
-alias l='ls -la'
-alias ssr='ssh -l root'
-alias s='subl'
-alias a='atom'
-
-# cd .. style like in bash
-zstyle ':completion:*' special-dirs true
-
-# Keypad
-# 0 . Enter
-bindkey -s "^[Op" "0"
-bindkey -s "^[Ol" "."
-bindkey -s "^[OM" "^M"
-# 1 2 3
-bindkey -s "^[Oq" "1"
-bindkey -s "^[Or" "2"
-bindkey -s "^[Os" "3"
-# 4 5 6
-bindkey -s "^[Ot" "4"
-bindkey -s "^[Ou" "5"
-bindkey -s "^[Ov" "6"
-# 7 8 9
-bindkey -s "^[Ow" "7"
-bindkey -s "^[Ox" "8"
-bindkey -s "^[Oy" "9"
-# + -  * /
-bindkey -s "^[Ok" "+"
-bindkey -s "^[Om" "-"
-bindkey -s "^[Oj" "*"
-bindkey -s "^[Oo" "/"
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+vb () { ssh -p 2222 127.0.0.1 ;}

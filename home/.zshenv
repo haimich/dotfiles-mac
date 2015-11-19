@@ -2,11 +2,11 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 box () {
   pwd=$(pwd)
-  cd $HOME/Development/vbox/
+  cd $HOME/dev/vbox/vb
   if [ -z $@ ] || [[ $@ == 'up' ]]; then
     vagrant up
     mountBox
-    portForwarding 'enable'
+    #portForwarding 'enable'
   else
     vagrant $@
   fi
@@ -50,4 +50,5 @@ vpn () {
     /opt/cisco/anyconnect/bin/vpn disconnect
   fi
 }
+
 
