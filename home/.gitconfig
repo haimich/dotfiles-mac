@@ -1,0 +1,33 @@
+[alias]
+  st = status
+  ci = commit
+  sa = stash
+  di = diff
+  co = checkout
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  pu = !git pull --rebase && git push
+  pull = pull --rebase
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  unchange = checkout HEAD
+
+[user]
+	email = haimich@gmx.net
+	name = Michael Müller
+
+[push]
+	default = simple
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
