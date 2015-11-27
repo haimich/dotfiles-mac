@@ -34,13 +34,20 @@ portForwarding () {
   fi
 }
 
+# Mount VBox folder via Samba
 mountBox () {
-  volume="//$USER@127.0.0.1:8445/$USER"
+  #volume="//$USER@127.0.0.1:8445/$USER"
+  volume="//$USER:blafasel@192.168.1.2/$USER"
   if ! mount|grep "$volume" > /dev/null; then
     mkdir -p /Volumes/devel
     echo "Mounting devel"
     mount_smbfs $volume /Volumes/devel
   fi
+}
+
+# Mount VBox folder via ssh fs
+mountSSHFS () {
+  sshfs -p 2222 localhost:/home /tmp/test
 }
 
 vpn () {
@@ -51,4 +58,12 @@ vpn () {
   fi
 }
 
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+vb () { ssh -p 2222 127.0.0.1 ;}
 
+export MYSQL_HOME=/usr/local/mysql
+alias mysql_start='sudo $MYSQL_HOME/bin/mysqld_safe &'
+alias mysql_stop='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
+
+alias s='git status'
+alias d='git diff'

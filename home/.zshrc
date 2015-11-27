@@ -53,8 +53,8 @@ plugins=(git node npm brew pip composer colored-man-pages sudo vagrant common-al
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/michmueller/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/michmueller/bin:/usr/local/mysql/bin/"
+export CDPATH=$CDPATH:~/dev:~/
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,7 +72,10 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+if [[ `ssh-add -L` == "The agent has no identities." ]]; then
+  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/github
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -81,8 +84,4 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias s="git status"
-alias di="git diff"
 
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-vb () { ssh -p 2222 127.0.0.1 ;}
