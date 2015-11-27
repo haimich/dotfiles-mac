@@ -47,7 +47,7 @@ mountBox () {
 
 # Mount VBox folder via ssh fs
 mountSSHFS () {
-  sshfs -p 2222 localhost:/home /tmp/test
+  sshfs -p 2222 localhost:/home /Volumes/devel_sshfs
 }
 
 vpn () {

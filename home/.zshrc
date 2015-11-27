@@ -58,6 +58,11 @@ export CDPATH=$CDPATH:~/dev:~/
 
 source $ZSH/oh-my-zsh.sh
 
+##### KEYBINDINGS #####
+
+# Multiline editing
+bindkey '^x' push-line-or-edit
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
