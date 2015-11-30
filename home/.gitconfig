@@ -12,7 +12,7 @@
   unchange = checkout HEAD
 
 [user]
-  email = haimich@gmx.net
+  email = michael.mueller@1und1.de
   name = Michael Müller
 
 [push]
