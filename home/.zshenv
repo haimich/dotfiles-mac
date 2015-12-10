@@ -1,5 +1,10 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+portForwarding() {
+  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/github
+}
+
 box () {
   pwd=$(pwd)
   cd $HOME/dev/vbox/vb
@@ -47,6 +52,7 @@ mountBox () {
 
 # Mount VBox folder via ssh fs
 mountSSHFS () {
+  mkdir -p /Volumes/devel_sshfs
   sshfs -p 2222 localhost:/home /Volumes/devel_sshfs
 }
 
