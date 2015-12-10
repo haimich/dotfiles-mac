@@ -1,6 +1,6 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-portForwarding() {
+keyAgent() {
   ssh-add ~/.ssh/id_rsa
   ssh-add ~/.ssh/github
 }

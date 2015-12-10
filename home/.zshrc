@@ -14,7 +14,7 @@ zstyle ':completion:*' special-dirs true
 DISABLE_AUTO_UPDATE="false"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=40
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -33,7 +33,7 @@ setopt localoptions rmstarsilent
 
 # ssh
 if [[ `ssh-add -L` == "The agent has no identities." ]]; then
-  portForwarding() 
+  keyAgent
 fi
 
 ##### KEYBINDINGS #####
