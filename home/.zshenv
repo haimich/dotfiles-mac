@@ -10,14 +10,14 @@ box () {
   cd $HOME/dev/vbox/vb
   if [ -z $@ ] || [[ $@ == 'up' ]]; then
     vagrant up
-    mountBox
+    mountSSHFS
     #portForwarding 'enable'
   else
     vagrant $@
   fi
 
   if [[ "$subcommand" == 'halt' ]] || [[ "$subcommand" == 'destroy' ]]; then
-    portForwarding 'disable'
+    #portForwarding 'disable'
   fi
   cd $pwd
 }
@@ -68,6 +68,7 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 vb () { ssh -p 2222 127.0.0.1 ;}
 
 export MYSQL_HOME=/usr/local/mysql
+export PG_HOME=/Applications/Postgres.app/Contents/Versions/9.5/
 alias mysql_start='sudo $MYSQL_HOME/bin/mysqld_safe &'
 alias mysql_stop='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
 
