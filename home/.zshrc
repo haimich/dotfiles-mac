@@ -44,4 +44,4 @@ bindkey '^x' push-line-or-edit
 
 
 ### Docker
-eval "$(docker-machine env default)"
+#eval "$(docker-machine env default)"
