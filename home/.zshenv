@@ -11,13 +11,14 @@ box () {
   if [ -z $@ ] || [[ $@ == 'up' ]]; then
     vagrant up
     mountSSHFS
-    #portForwarding 'enable'
+    portForwarding 'enable'
   else
     vagrant $@
   fi
 
   if [[ "$subcommand" == 'halt' ]] || [[ "$subcommand" == 'destroy' ]]; then
-    #portForwarding 'disable'
+    umount localhost:/home
+    portForwarding 'disable'
   fi
   cd $pwd
 }
@@ -30,11 +31,11 @@ portForwarding () {
 
   if [[ "$@" == 'disable' ]]; then
     echo '==> Removing Port Forwarding'
-    sudo pfctl -df /etc/pf.conf  -q > /dev/null 2>&1;
-  elif [[ "$@" == 'enable' ]] && ! sudo pfctl -q -s nat | grep "127.0.0.1 port = 80 -> 127.0.0.1 port 8080" > /dev/null; then
-    echo "==> Fowarding Ports: 80 -> 8080, 443 -> 8443"
-    echo "rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8080  
-    rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 8443" | sudo pfctl -q -f - > /dev/null 2>&1
+    sudo pfctl -df /etc/pf.conf -q > /dev/null 2>&1;
+  elif [[ "$@" == 'enable' ]] && ! sudo pfctl -q -s nat | grep "127.0.0.1 port = 80 -> 127.0.0.1 port 9080" > /dev/null; then
+    echo "==> Fowarding Ports: 80 -> 9080, 443 -> 9443"
+    echo "rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 9080  
+    rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 9443" | sudo pfctl -q -f - > /dev/null 2>&1
     sudo pfctl -q -e;
   fi
 }
