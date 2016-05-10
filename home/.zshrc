@@ -17,10 +17,13 @@ DISABLE_AUTO_UPDATE="false"
 export UPDATE_ZSH_DAYS=40
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker git node npm brew pip composer colored-man-pages sudo common-aliases fabric)
+
+# Wormhole
+nohup $HOME/dev/wormhole/darwin_amd64/wormhole -quiet 1>&2 &>/dev/null &!
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/michmueller/bin:/usr/local/mysql/bin/:/Applications/Postgres.app/Contents/Versions/9.5/bin"
@@ -42,6 +45,8 @@ fi
 # Multiline editing
 bindkey '^x' push-line-or-edit
 
-
 ### Docker
 #eval "$(docker-machine env default)"
+
+# start in vbox per default
+vb
