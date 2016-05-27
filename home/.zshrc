@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/michmueller/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -20,15 +20,10 @@ export UPDATE_ZSH_DAYS=40
 ENABLE_CORRECTION="false"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker git node npm brew pip composer colored-man-pages sudo common-aliases fabric)
-
-# Wormhole
-nohup $HOME/dev/wormhole/darwin_amd64/wormhole -quiet 1>&2 &>/dev/null &!
+plugins=(docker git node npm brew pip composer colored-man-pages sudo common-aliases)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/michmueller/bin:/usr/local/mysql/bin/:/Applications/Postgres.app/Contents/Versions/9.5/bin"
-export CDPATH=$CDPATH:~/dev:~/
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,9 +39,3 @@ fi
 
 # Multiline editing
 bindkey '^x' push-line-or-edit
-
-### Docker
-#eval "$(docker-machine env default)"
-
-# start in vbox per default
-vb
