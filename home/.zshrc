@@ -20,7 +20,7 @@ export UPDATE_ZSH_DAYS=40
 ENABLE_CORRECTION="false"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker git node npm brew pip composer colored-man-pages sudo common-aliases fabric)
+plugins=(docker git node npm brew pip composer colored-man-pages sudo common-aliases)
 
 # Wormhole
 nohup $HOME/dev/wormhole/darwin_amd64/wormhole -quiet 1>&2 &>/dev/null &!

@@ -41,7 +41,7 @@ portForwarding () {
 }
 
 # Mount VBox folder via Samba
-mountBox () {
+__deprecated_mountBox () {
   #volume="//$USER@127.0.0.1:8445/$USER"
   volume="//$USER:blafasel@192.168.1.2/$USER"
   if ! mount|grep "$volume" > /dev/null; then
@@ -72,6 +72,4 @@ export MYSQL_HOME=/usr/local/mysql
 export PG_HOME=/Applications/Postgres.app/Contents/Versions/9.5/
 alias mysql_start='sudo $MYSQL_HOME/bin/mysqld_safe &'
 alias mysql_stop='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
-
-alias s='git status'
-alias d='git diff'
+alias s='subl'
