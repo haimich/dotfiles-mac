@@ -16,7 +16,7 @@ box () {
     vagrant $@
   fi
 
-  if [[ "$subcommand" == 'halt' ]] || [[ "$subcommand" == 'destroy' ]]; then
+  if [[ "$subcommand" == 'halt' ]] || [[ "$subcommand" == 'destroy' ]] || [[ "$subcommand" == 'reload' ]]; then
     umount localhost:/home
     portForwarding 'disable'
   fi
@@ -55,6 +55,10 @@ __deprecated_mountBox () {
 mountSSHFS () {
   mkdir -p /Volumes/devel_sshfs
   sshfs -p 2222 localhost:/home /Volumes/devel_sshfs
+}
+
+unmountSSHFS () {
+  umount -f localhost:/home
 }
 
 vpn () {
