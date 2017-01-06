@@ -12,7 +12,7 @@
   unchange = checkout HEAD
 
 [user]
-  email = michael.mueller@1und1.de
+  email = haimich@gmx.net
   name = Michael Mueller
 
 [push]
@@ -31,8 +31,6 @@
   prompt = false
 [diff]
   tool = Kaleidoscope
-[core]
-	excludesfile = /Users/michmueller/.gitignore_global
 [filter "lfs"]
 	smudge = git-lfs smudge %f
 	required = true

@@ -1,8 +1,7 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 keyAgent() {
-  ssh-add ~/.ssh/id_rsa
-  ssh-add ~/.ssh/github
+  ssh-add ~/.ssh/github_id_rsa
 }
 
 box () {
@@ -61,19 +60,7 @@ unmountSSHFS () {
   umount -f localhost:/home
 }
 
-vpn () {
-  if [ "$(/opt/cisco/anyconnect/bin/vpn stats | grep '>> state: Disconnected')" ]; then
-    /opt/cisco/anyconnect/bin/vpn connect gw-ma-vpn.bs.kae.de.oneandone.net
-  else 
-    /opt/cisco/anyconnect/bin/vpn disconnect
-  fi
-}
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-vb () { ssh -p 2222 127.0.0.1 ;}
 
-export MYSQL_HOME=/usr/local/mysql
-export PG_HOME=/Applications/Postgres.app/Contents/Versions/9.5/
-alias mysql_start='sudo $MYSQL_HOME/bin/mysqld_safe &'
-alias mysql_stop='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
-alias s='subl'
+export PATH="$PATH:/usr/local/go"
