@@ -30,12 +30,9 @@ source $ZSH/oh-my-zsh.sh
 # dont ask for confirmation when deleting with rm
 setopt localoptions rmstarsilent
 
-# ssh
-if [[ `ssh-add -L` == "The agent has no identities." ]]; then
-  keyAgent
-fi
-
 ##### KEYBINDINGS #####
 
 # Multiline editing
 bindkey '^x' push-line-or-edit
+
+cd /Users/CrisMich/Desktop/dev
