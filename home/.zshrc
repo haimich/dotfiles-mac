@@ -44,9 +44,3 @@ fi
 
 # Multiline editing
 bindkey '^x' push-line-or-edit
-
-### Docker
-#eval "$(docker-machine env default)"
-
-# start in vbox per default
-vb

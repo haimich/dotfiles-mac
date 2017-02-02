@@ -12,8 +12,8 @@
   unchange = checkout HEAD
 
 [user]
-  email = michael.mueller@1und1.de
-  name = Michael Mueller
+	email = michael.mueller@1und1.de
+	name = Michael Mueller
 
 [push]
   default = simple

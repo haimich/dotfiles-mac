@@ -70,7 +70,10 @@ vpn () {
 }
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-vb () { ssh -p 2222 127.0.0.1 ;}
+
+vb () {
+  ssh -p 2222 127.0.0.1 ;
+}
 
 export MYSQL_HOME=/usr/local/mysql
 export PG_HOME=/Applications/Postgres.app/Contents/Versions/9.5/
