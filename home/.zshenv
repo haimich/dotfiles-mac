@@ -1,7 +1,8 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 keyAgent() {
-  ssh-add ~/.ssh/github_id_rsa
+  ssh-add ~/.ssh/github
+  ssh-add ~/.ssh/id_rsa
 }
 
 box () {
